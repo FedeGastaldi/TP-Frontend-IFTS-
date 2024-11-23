@@ -1,0 +1,252 @@
+
+
+/* Fondo oscuro con degradado */
+body {
+  background: linear-gradient(135deg, #1e3a8a, #0f172a);
+  color: #e0e7ff;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 1rem;
+  box-sizing: border-box;
+  overflow-x: hidden; /* Evita desplazamiento horizontal */
+}
+
+/* Card con transparencia y efecto blur */
+.card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  background-color: rgba(255, 255, 255, 0.1); /* Transparencia */
+  backdrop-filter: blur(10px); /* Efecto de vidrio */
+  padding: 2rem;
+  width: 100%;
+  max-width: 400px;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
+  border: none;
+}
+
+/* Efecto de borde animado */
+.card::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 4px;
+  height: 100%;
+  background-color: #38bdf8;
+  transform: scaleY(1);
+  transform-origin: bottom;
+  transition: all 0.5s;
+}
+
+.card::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 4px;
+  height: 100%;
+  background-color: #e3fd21;
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: all 0.5s;
+}
+
+.card:hover::after {
+  transform: scaleY(1);
+}
+
+
+.fa {
+  font-family: "FontAwesome" !important;
+  color: #38bdf8;
+  font-size: 22px;
+  transition: color 0.3s;
+}
+
+.fa:hover {
+  color: #e3fd21;
+  transform: scale(1.6);
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+
+/* Botones */
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.buttons button {
+  height: 40px;
+  padding: 0 1.5rem;
+  border-radius: 8px;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.buttons button:nth-child(1) {
+  border: 1px solid #38bdf8;
+  color: #38bdf8;
+  background-color: transparent;
+}
+
+.buttons button:nth-child(1):hover {
+  background-color: #38bdf8;
+  color: white;
+}
+
+.buttons button:nth-child(2) {
+  border: 1px solid #0ea5e9;
+  background-color: #0ea5e9;
+  color: white;
+}
+
+.buttons button:nth-child(2):hover {
+  background-color: #e3fd21;
+}
+
+
+/* Estilos para enlaces */
+a {
+  text-decoration: none; 
+  font-weight: bold; 
+  font-size: 16px; 
+}
+
+.fa-arrow-left {
+  font-size: 16px; 
+}
+
+/* Estilos para cuando la card está expandida */
+.card.expanded {
+  width: 100%;
+  max-width: 800px; /* Ajusta según tu preferencia */
+}
+
+/* Estilos para los íconos */
+.icon-size {
+  font-size: 2.5rem; /* Ajusta el tamaño del ícono */
+}
+
+.icon-size svg {
+  color: #708d20; /* Cambia el color del ícono */; 
+}
+
+
+/* Estilos para las Cards de Proyectos */
+.project-card {
+  border: none;
+  color: #d1d1d1; /* Color de texto claro */
+  border-radius: 10px; /* Bordes redondeados */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Sombra suave */
+  overflow: hidden; /* Asegura que los bordes sean redondeados */
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Efecto de transición */
+}
+
+.project-card:hover {
+  transform: translateY(-5px); /* Eleva la card al hacer hover */
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.4); /* Sombra más pronunciada */
+}
+
+.project-card img {
+  width: 100%; /* Asegura que la imagen ocupe todo el ancho de la card */
+  object-fit: cover; /* Asegura que la imagen se recorte y se ajuste */
+  border-top-left-radius: 10px; /* Bordes redondeados en la parte superior */
+  border-top-right-radius: 10px;
+}
+
+.project-card h5 {
+  font-size: 1.2rem; /* Tamaño de fuente para el título */
+  margin-top: 15px; /* Espaciado arriba del título */
+  color: #4fa3f7; /* Color azul para el título */
+  font-weight: bold;
+}
+
+.project-card p {
+  font-size: 0.875rem; /* Tamaño de fuente para la descripción */
+  margin-top: 10px; /* Espaciado entre título y descripción */
+  line-height: 1.5; /* Mejor legibilidad en el texto */
+  text-align: justify; /* Justifica el texto */
+}
+
+.project-card a {
+  display: inline-block; /* Asegura que el enlace sea un bloque en línea */
+  padding: 8px 16px; /* Relleno para el botón */
+  background-color: #4fa3f7; /* Color de fondo azul */
+  color: white; /* Color de texto blanco */
+  text-decoration: none; /* Quita el subrayado */
+  border-radius: 5px; /* Bordes redondeados para el botón */
+  margin-top: 10px; /* Espaciado arriba del botón */
+  transition: background-color 0.3s ease; /* Transición para el hover */
+}
+
+.project-card a:hover {
+  background-color: #3b8bd1; /* Color de fondo más oscuro al hacer hover */
+}
+
+
+/* Media Queries para pantallas pequeñas */
+@media (max-width: 768px) {
+  .card {
+    padding: 1.5rem; /* Reduce el padding en pantallas pequeñas */
+    max-width: 90%; /* Limita el tamaño de la tarjeta */
+  }
+
+  .card.expanded {
+    max-width: 60%; /* Limita la expansión */
+  }
+
+  .buttons button {
+    width: 100%; /* Hace los botones más grandes en pantallas pequeñas */
+  }
+
+  .buttons {
+    flex-direction: column; /* Coloca los botones verticalmente */
+    gap: 0.5rem;
+  }
+
+  .project-card {
+    margin: 10px 0; /* Espaciado entre las tarjetas */
+  }
+
+  .project-card img {
+    height: 200px; /* Limita la altura de las imágenes en pantallas pequeñas */
+    object-fit: cover;
+  }
+
+  .project-card a {
+    width: 100%; /* Hace el enlace más grande en dispositivos pequeños */
+    text-align: center;
+  }
+
+  h5 {
+    font-size: 1.1rem; /* Reduce el tamaño del título */
+  }
+
+  .fa {
+    font-size: 18px; /* Reduce el tamaño de los íconos */
+  }
+}
+
+/* Media Query para pantallas muy pequeñas */
+@media (max-width: 480px) {
+  h5 {
+    font-size: 1rem; /* Reduce aún más el tamaño del título */
+  }
+
+  .fa {
+    font-size: 16px; /* Ajusta el tamaño de los íconos */
+  }
+
+  .card {
+    padding: 1rem; /* Reduce el padding en pantallas muy pequeñas */
+  }
+}
+
